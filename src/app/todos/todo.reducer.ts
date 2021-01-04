@@ -49,6 +49,10 @@ const _todoReducer = createReducer(
       };
     })
   }),
+
+  on(actions.clearCompleted, (state) => {
+    return state.filter(todo => !todo.completed);
+  }),
 );
 
 export function todoReducer(state, action) {
