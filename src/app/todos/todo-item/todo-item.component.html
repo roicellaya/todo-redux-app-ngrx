@@ -1,0 +1,21 @@
+<!-- List items should get the class `editing` when editing and `completed` when marked as completed -->
+<li [class.completed]="todoMutable.completed"
+    [class.editing]="editing">
+  <div class="view">
+
+    <input class="toggle"
+           type="checkbox"
+           [formControl]="chkCompleted">
+
+    <label (dblclick)="edit()">{{ todoMutable.text }}</label>
+
+    <button class="destroy"
+            (click)="delete()"></button>
+  </div>
+
+  <input class="edit"
+         [formControl]="txtInput"
+         (blur)="endEdition()"
+         type="text"
+         #inputFisico>
+</li>
